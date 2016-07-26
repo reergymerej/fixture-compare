@@ -2,46 +2,10 @@ import fs from 'fs';
 import path from 'path';
 import { fileMatches } from 'compare-with-file';
 
-
-
 let fixturesDir = path.join(process.cwd(), 'test/fixtures');
 
 function getAbsolutePath(relativePath) {
   return path.join(fixturesDir, relativePath);
-}
-
-
-
-/**
-* @param {String} input - raw input or input file path
-* @param {Function/String} [transform]
-*/
-// export default (input, transform, output) => {
-//   if (isFilePath(input)) {
-//     console.log('file', input);
-//   } else {
-//
-//   }
-// };
-
-/**
-* Compare string to contents of file.
-* @param {String} input
-* @param {String} file - path of file to compare against
-* @return {Boolean}
-*/
-export function inputMatchesFile(input, file) {
-  try {
-    return fileMatches(getAbsolutePath(file), input);
-  } catch (e) {
-    if (e.code === 'ENOENT') {
-      throw new Error('input file not found');
-    }
-  }
-}
-
-export function setFixturesDir(dir) {
-  fixturesDir = dir;
 }
 
 function readInputFile(input) {
@@ -55,16 +19,22 @@ function readInputFile(input) {
   }
 }
 
-export function fixtureAndTransform(inputFilePath, transform) {
-  const input = readInputFile(inputFilePath);
-  const inputAbsolutePath = getAbsolutePath(inputFilePath);
-  const output = `${inputAbsolutePath}.output`;
+export function setFixturesDir(dir) {
+  fixturesDir = dir;
+}
 
+/**
+* Compare string to contents of file.
+* @param {String} input
+* @param {String} file - path of file to compare against
+* @return {Boolean}
+*/
+export function inputMatchesFile(input, file) {
   try {
-    return fileMatches(output, transform(input));
+    return fileMatches(getAbsolutePath(file), input);
   } catch (e) {
     if (e.code === 'ENOENT') {
-      throw new Error('output file not found');
+      throw new Error('input file not found');
     }
   }
 }
