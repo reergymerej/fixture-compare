@@ -2,6 +2,14 @@
   "version": "1.0.0",
   "name": "fixture-compare",
   "description": "Compare test fixtures with each other, with strings, and against the results of transforms.",
+  "keywords": [
+    "test",
+    "testing",
+    "fixture",
+    "file",
+    "string",
+    "comparison"
+  ],
   "main": "lib/index.js",
   "scripts": {
     "start": "babel-node src/index.js",
