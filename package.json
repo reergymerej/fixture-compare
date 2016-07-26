@@ -1,6 +1,7 @@
 {
   "version": "1.0.0",
   "name": "fixture-compare",
+  "description": "Compare test fixtures with each other, with strings, and against the results of transforms.",
   "main": "lib/index.js",
   "scripts": {
     "start": "babel-node src/index.js",
@@ -22,5 +23,14 @@
   "license": "ISC",
   "directories": {
     "test": "test"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/reergymerej/fixture-compare.git"
+  },
+  "author": "Jeremy Greer",
+  "bugs": {
+    "url": "https://github.com/reergymerej/fixture-compare/issues"
+  },
+  "homepage": "https://github.com/reergymerej/fixture-compare#readme"
 }
