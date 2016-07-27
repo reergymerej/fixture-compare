@@ -4,6 +4,9 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 ### Added
+
+## [1.1.0] - 2016-07-27
+### Added
 - upgraded compare-with-file
 - add option to log differences
 
@@ -12,3 +15,4 @@ This project adheres to [Semantic Versioning](http://semver.org/).
 - everything
 
 [Unreleased]: https://github.com/reergymerej/compare-with-file/compare/1.1.0...HEAD
+[1.1.0]: https://github.com/reergymerej/compare-with-file/compare/1.1.0...HEAD
