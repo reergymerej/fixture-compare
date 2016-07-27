@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "name": "fixture-compare",
   "description": "Compare test fixtures with each other, with strings, and against the results of transforms.",
   "keywords": [
@@ -26,7 +26,8 @@
     "mocha": "^2.5.3"
   },
   "dependencies": {
-    "compare-with-file": "^1.0.4"
+    "babel-register": "^6.11.6",
+    "compare-with-file": "^1.1.0"
   },
   "license": "ISC",
   "directories": {

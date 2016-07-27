@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { fileMatches } from 'compare-with-file';
+import * as compareWithFile from 'compare-with-file';
 
 let fixturesDir = path.join(process.cwd(), 'test/fixtures');
 
@@ -23,6 +23,10 @@ export function setFixturesDir(dir) {
   fixturesDir = dir;
 }
 
+export function setLogging(on) {
+  compareWithFile.setLogging(on);
+}
+
 /**
 * Compare string to contents of file.
 * @param {String} input
@@ -31,7 +35,7 @@ export function setFixturesDir(dir) {
 */
 export function inputMatchesFile(input, file) {
   try {
-    return fileMatches(getAbsolutePath(file), input);
+    return compareWithFile.fileMatches(getAbsolutePath(file), input);
   } catch (e) {
     if (e.code === 'ENOENT') {
       throw new Error('input file not found');
@@ -47,7 +51,7 @@ export default function compare(inputFilePath, transform, outputFilePath) {
     : `${inputAbsolutePath}.output`;
 
   try {
-    return fileMatches(outputAbsolutePath, transform(input));
+    return compareWithFile.fileMatches(outputAbsolutePath, transform(input));
   } catch (e) {
     if (e.code === 'ENOENT') {
       throw new Error('output file not found');

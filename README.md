@@ -3,17 +3,8 @@
 Compare test fixtures with each other, with strings, and against the results of
 transforms.
 
-[![Build Status](https://travis-ci.org/reergymerej/fixture-compare.svg?branch=master)](https://travis-ci.org/reergymerej/fixture-compare)
+[![Build Status](https://travis-ci.org/reergymerej/fixture-compare.svg?branch=master)](https://travis-ci.org/reergymerej/fixture-compare) [v1.1.0][changelog]
 
-### Specify Fixtures Directory
-
-By default, paths to fixtures are assumed to be relative to `{cwd}/test/fixtures`.
-To specify another directory...
-
-```js
-import {setFixturesDir} from 'fixture-compare';
-setFixturesDir(path.join(__dirname, 'somewhere/else'));
-```
 
 ### Compare a String to a Fixture
 
@@ -37,6 +28,7 @@ const transform = (text) => text.split('').reverse();
 fixtureCompare(fixture, transform);
 ```
 
+
 ### Run a Fixture Through a Transform, Specify Result Fixture
 
 Same as the previous example, but allows you to specify a different output file.
@@ -50,6 +42,42 @@ fixtureCompare(input, transform, output);
 ```
 
 
+### Specify Fixtures Directory
+
+By default, paths to fixtures are assumed to be relative to `{cwd}/test/fixtures`.
+To specify another directory...
+
+```js
+import {setFixturesDir} from 'fixture-compare';
+setFixturesDir(path.join(__dirname, 'somewhere/else'));
+```
+
+
+### Log Differences
+
+To log differences when fixtures do not match, use `setLogging`.
+
+```js
+import {setLogging} from 'fixture-compare';
+setLogging(true);
+```
+
+```sh
+- expected
++ actual
+
+-  \n
+  "||"
++  \n
+
+     snett    ik eltt   il\n
+  "++---||++++|----||+++--||"
+   li   ttle ki    ttens  \n
+```
+
+
+
+
 
 
 
@@ -58,3 +86,4 @@ fixtureCompare(input, transform, output);
 kickstarted by [npm-boom][npm-boom]
 
 [npm-boom]: https://github.com/reergymerej/npm-boom
+[changelog]: CHANGELOG.md
